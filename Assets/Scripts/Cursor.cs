@@ -29,7 +29,6 @@ public class Cursor : MonoBehaviour
             RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero, 100, tileLayer);
             if (hit)
             {
-                
 
                 if (hit.collider.gameObject != currentTile)
                 {
@@ -69,6 +68,7 @@ public class Cursor : MonoBehaviour
                         if(!previousTile.GetComponent<Tile>().used)
                         {
                             GettingNeighbours();
+                            //previousTile.GetComponent<Tile>().right.GetComponent<SpriteRenderer>().color = getColorCode.GetComponent<SpriteRenderer>().color;
                             previousTile.GetComponent<Tile>().right.SetActive(true);
                             previousTile.GetComponent<Tile>().used = true;
                             previousTile.GetComponent<Tile>().nextTile = currentTile;
@@ -76,7 +76,7 @@ public class Cursor : MonoBehaviour
                         }
                         if(currentTile.GetComponent<Tile>().used)
                         {
-                            //currentTile.GetComponent<Tile>().used = false;
+                            currentTile.GetComponent<Tile>().used = false;
                             currentTile.GetComponent<Tile>().left.SetActive(false);
                         }
                     }
@@ -94,7 +94,7 @@ public class Cursor : MonoBehaviour
 
                         if (currentTile.GetComponent<Tile>().used)
                         {
-                            //currentTile.GetComponent<Tile>().used = false;
+                            currentTile.GetComponent<Tile>().used = false;
                             currentTile.GetComponent<Tile>().right.SetActive(false);
                         }
                     }
@@ -112,7 +112,7 @@ public class Cursor : MonoBehaviour
 
                         if (currentTile.GetComponent<Tile>().used)
                         {
-                            //currentTile.GetComponent<Tile>().used = false;
+                            currentTile.GetComponent<Tile>().used = false;
                             currentTile.GetComponent<Tile>().down.SetActive(false);
                         }
                     }
@@ -129,16 +129,14 @@ public class Cursor : MonoBehaviour
 
                         if (currentTile.GetComponent<Tile>().used)
                         {
-                            //currentTile.GetComponent<Tile>().used = false;
+                            currentTile.GetComponent<Tile>().used = false;
                             currentTile.GetComponent<Tile>().up.SetActive(false);
                         }
                     }
                     else
                     {
                         Debug.Log("Inside but not working");
-                    }
-
-                    
+                    }  
                 }
             }
             }
